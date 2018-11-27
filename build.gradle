@@ -16,6 +16,7 @@
 
 // Apply the java-library plugin to add support for Java Library
 apply plugin: 'java-library'
+apply plugin: 'java'
 
 def gitRevision = { ->
   def hashStdOut = new ByteArrayOutputStream()
@@ -37,8 +38,8 @@ project.ext.pluginDesc = [
   id         : 'info.tol.gocd.plugin',
   version    : project.version,
   goCdVersion: '18.3.0',
-  name       : 'Default GoCD',
-  description: 'Default plugin for Go CD',
+  name       : 'Template Task GoCD',
+  description: 'Template plugin for GoCD',
   vendorName : 'TOL GmbH',
   vendorUrl  : 'https://github.com/territorium/gocd-plugin.git'
 ]
