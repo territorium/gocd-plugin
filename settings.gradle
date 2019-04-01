@@ -1,4 +1,5 @@
 /*
+ * Copyright 2018 TOL GmbH.
  * Copyright 2017 ThoughtWorks, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,12 +14,5 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-/*
-// To declare projects as part of a multi-project build use the 'include' method
-include 'shared'
-include 'api'
-include 'services:webservice'
-*/
 
 rootProject.name = 'gocd-plugin'

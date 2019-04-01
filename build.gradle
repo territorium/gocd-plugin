@@ -37,37 +37,31 @@ version = '1.0'
 project.ext.pluginDesc = [
   id         : 'info.tol.gocd.plugin',
   version    : project.version,
-  goCdVersion: '18.3.0',
+  goCdVersion: '18.7.0',
   name       : 'Template Task GoCD',
   description: 'Template plugin for GoCD',
   vendorName : 'TOL GmbH',
   vendorUrl  : 'https://github.com/territorium/gocd-plugin.git'
 ]
 
-// Force 1.7 compatibility to ensure that it works with older JVMs
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-// In this section you declare where to find the dependencies of your project
 repositories {
-    // Use jcenter for resolving your dependencies.
-    // You can declare any Maven/Ivy/file repository here.
-  jcenter()
-  mavenLocal()
+    mavenCentral()
 }
 
 sourceSets {
-  test {
-    java {
-      compileClasspath += configurations.compileOnly
-      runtimeClasspath += configurations.compileOnly
+    test {
+        java {
+            compileClasspath += configurations.compileOnly
+            runtimeClasspath += configurations.compileOnly
+        }
     }
-  }
 }
 
 dependencies {
-  // This dependency is exported to consumers, that is to say found on their compile classpath.
-  compileOnly group: 'cd.go.plugin', name: 'go-plugin-api', version: '18.3.0'
+  compileOnly group: 'cd.go.plugin', name: 'go-plugin-api', version: '18.6.0'
   compile group: 'com.google.code.gson', name: 'gson', version: '2.8.2'
   compile group: 'commons-io', name: 'commons-io', version: '2.6'
 
@@ -121,7 +115,6 @@ jar {
   manifest {
     attributes(
       'Go-Version': project.version,
-      'ImplementationVersion': project.version,
       'Go-Revision': project.gitRevision,
       'Implementation-Title': project.name,
       'Implementation-Version': project.version,
@@ -130,10 +123,11 @@ jar {
     )
   }
 
-  from(configurations.compile) {
-    into "lib/"
-  }
-  from(sourceSets.main.java) {
-    into "/"
-  }
+    from(configurations.compile) {
+        into "lib/"
+    }
+
+//    from(sourceSets.main.java) {
+//        into "/"
+//    }
 }
